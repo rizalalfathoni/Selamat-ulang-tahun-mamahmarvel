@@ -2,66 +2,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selamat Ulang Tahun Mamah Marvel</title>
+    <title>Selamat Ulang Tahun, Mamah Marvel!</title>
     <style>
         body {
-            background-color: #ffebf0;
+            margin: 0;
+            padding: 0;
+            background: url('https://source.unsplash.com/1600x900/?birthday') no-repeat center center/cover;
             text-align: center;
             font-family: 'Arial', sans-serif;
-            overflow: hidden;
+            color: #64401E;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            margin: 50px auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
         h1 {
-            font-size: 2.5em;
-            color: #d63384;
-            animation: fadeIn 2s ease-in-out;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
         }
         p {
-            font-size: 1.2em;
-            color: #555;
-            animation: fadeIn 3s ease-in-out;
+            font-size: 18px;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #CDAA7D;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+        .button:hover {
+            background: #A07A50;
+        }
+        @keyframes sakura {
+            from { transform: translateY(-10px) rotate(0deg); }
+            to { transform: translateY(100vh) rotate(360deg); }
         }
         .sakura {
             position: absolute;
             width: 20px;
             height: 20px;
-            background: url('https://upload.wikimedia.org/wikipedia/commons/4/47/Cherry_blossom.png');
-            background-size: cover;
-            opacity: 0.8;
-            animation: fall linear infinite;
-        }
-        @keyframes fall {
-            0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+            background: url('https://upload.wikimedia.org/wikipedia/commons/1/11/Sakura_Flower.png') no-repeat center;
+            background-size: contain;
+            animation: sakura 10s linear infinite;
         }
     </style>
 </head>
 <body>
-    <h1>Selamat Ulang Tahun, Mamah Marvel!</h1>
-    <p>Semoga panjang umur, sehat selalu, dan bahagia.</p><script>
-    function createSakura() {
-        const sakura = document.createElement('div');
-        sakura.classList.add('sakura');
-        document.body.appendChild(sakura);
-
-        let left = Math.random() * window.innerWidth;
-        let duration = Math.random() * 5 + 5;
-        let size = Math.random() * 20 + 10;
-
-        sakura.style.left = `${left}px`;
-        sakura.style.animationDuration = `${duration}s`;
-        sakura.style.width = `${size}px`;
-        sakura.style.height = `${size}px`;
-
-        setTimeout(() => {
-            sakura.remove();
-        }, duration * 1000);
-    }
-    setInterval(createSakura, 500);
-</script>
-
+    <div class="container">
+        <h1>Selamat Ulang Tahun, Mamah Marvel!</h1>
+        <p>Semoga panjang umur, sehat selalu, dan penuh kebahagiaan!</p>
+        <a href="#" class="button">Buka Undangan</a>
+    </div>
+    <script>
+        function createSakura() {
+            let sakura = document.createElement("div");
+            sakura.classList.add("sakura");
+            sakura.style.left = Math.random() * window.innerWidth + "px";
+            sakura.style.animationDuration = Math.random() * 5 + 5 + "s";
+            document.body.appendChild(sakura);
+            setTimeout(() => { document.body.removeChild(sakura); }, 10000);
+        }
+        setInterval(createSakura, 500);
+    </script>
 </body>
 </html>
